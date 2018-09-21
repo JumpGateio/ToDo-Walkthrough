@@ -27,7 +27,7 @@ class Menu
     private function generateLeftMenu()
     {
         $leftMenu = \Menu::getMenu('leftMenu');
-        
+
         $leftMenu->link('docs', function (Link $link) {
             $link->name = 'Documentation';
             $link->url  = route('larecipe.index');
