@@ -4,9 +4,12 @@ namespace App\Services\ToDo\Models;
 
 use App\Models\BaseModel;
 use App\Models\User;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class TaskList extends BaseModel
 {
+    use Sluggable;
+
     public $table = 'todo_lists';
 
     protected $fillable = [
@@ -15,6 +18,20 @@ class TaskList extends BaseModel
         'description',
         'complete_flag',
     ];
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+            ],
+        ];
+    }
 
     public function user()
     {
