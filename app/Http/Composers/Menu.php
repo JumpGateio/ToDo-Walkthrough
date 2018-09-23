@@ -32,6 +32,17 @@ class Menu
             $link->name = 'Documentation';
             $link->url  = route('larecipe.index');
         });
+
+        $leftMenu->dropDown('task-list', 'Lists', function (DropDown $dropDown) {
+            $dropDown->link('task-list.index', function (Link $link) {
+                $link->name = 'All Lists';
+                $link->url  = route('task-list.index');
+            });
+            $dropDown->link('task-list.create', function (Link $link) {
+                $link->name = 'Create List';
+                $link->url  = route('task-list.create');
+            });
+        });
     }
 
     /**
