@@ -8,7 +8,9 @@ use JumpGate\Core\Http\Routes\BaseRoute;
 
 class TaskList extends BaseRoute implements Routes
 {
-    public $namespace = 'App\Services\Http\Controllers';
+    public $namespace = 'App\Services\ToDo\Http\Controllers';
+
+    public $prefix = 'task-list';
 
     public $middleware = [
         'web',

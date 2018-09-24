@@ -8,7 +8,9 @@ use JumpGate\Core\Http\Routes\BaseRoute;
 
 class Task extends BaseRoute implements Routes
 {
-    public $namespace = 'App\Services\Http\Controllers';
+    public $namespace = 'App\Services\ToDo\Http\Controllers';
+
+    public $prefix = 'task';
 
     public $middleware = [
         'web',
@@ -17,11 +19,11 @@ class Task extends BaseRoute implements Routes
 
     public function routes(Router $router)
     {
-        $router->get('create')
+        $router->get('create/{listId}')
             ->name('task.create')
             ->uses('Task@create')
             ->middleware('active:task.create');
-        $router->post('create')
+        $router->post('create/{listId}')
             ->name('task.create')
             ->uses('Task@store');
 
@@ -41,10 +43,5 @@ class Task extends BaseRoute implements Routes
             ->name('task.show')
             ->uses('Task@show')
             ->middleware('active:task');
-
-        $router->get('/')
-            ->name('task.index')
-            ->uses('Task@index')
-            ->middleware('active:task.index');
     }
 }
