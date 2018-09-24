@@ -25,15 +25,15 @@ class TaskList extends BaseRoute implements Routes
             ->name('task-list.create')
             ->uses('TaskList@store');
 
-        $router->get('edit')
+        $router->get('edit/{id}')
             ->name('task-list.edit')
             ->uses('TaskList@edit')
             ->middleware('active:task-list.edit');
-        $router->post('edit')
+        $router->post('edit/{id}')
             ->name('task-list.edit')
             ->uses('TaskList@update');
 
-        $router->get('delete')
+        $router->get('delete/{id}')
             ->name('task-list.delete')
             ->uses('TaskList@delete');
 
