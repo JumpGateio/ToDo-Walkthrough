@@ -17,5 +17,6 @@ return [
     'paths' => [
         app_path('Http/Routes'),
         app_path('Services/*/Http/Routes'),
+        base_path('vendor/jumpgate/users/src/JumpGate/Users/Http/Routes')
     ],
 ];
